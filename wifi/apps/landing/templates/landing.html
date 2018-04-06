@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block stylesheets %}
+    {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <section class="content">
+        <div class="row">
+
+        </div>
+    </section>
+{% endblock %}
+
+{% block javascript %}
+    <script src="{% static 'bower_components/jquery/dist/jquery.min.js' %}"></script>
+    {{ block.super }}
+
+{% endblock %}

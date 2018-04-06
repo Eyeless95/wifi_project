@@ -1,0 +1,12 @@
+{% extends 'adminlte/lib/_main_header.html' %}
+{% load static %}
+{% block logo %}
+<a href="{% block logo_href %}/{% endblock %}" class="logo">
+    <!-- mini logo for sidebar mini 50x50 pixels -->
+    <span class="logo-mini">{% block logo_text_small %}<b>WF</b>{% endblock %}</span>
+    <!-- logo for regular state and mobile devices -->
+    <span class="logo-lg">{% block logo_text %}<b>WiFi</b>{% endblock %}</span>
+</a>
+
+
+{% endblock %}
