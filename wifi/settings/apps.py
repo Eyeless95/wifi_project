@@ -8,6 +8,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'wifi.apps.accounts',
+    'wifi.apps.dashboard',
     'wifi.apps.landing',
     'wifi.apps.wi_fi'
 ]

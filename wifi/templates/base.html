@@ -6,7 +6,7 @@
 {% block stylesheets %}
     {{ block.super }}
     <meta name="theme-color" content="#008d4c"/>
-    <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/png">
+{#    <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/png">#}
 {% endblock %}
 
 {% block nav_header %}
@@ -14,7 +14,7 @@
 {% endblock %}
 
 {% block body_class %}
-    skin-green sidebar-collapse
+    {% block bodyclass %}skin-green sidebar-mini sidebar-collapse{% endblock %}
 {% endblock %}
 
 {% block nav_sidebar %}
@@ -23,12 +23,7 @@
 
 {% block javascript %}
     {{ block.super }}
-    <script type="text/javascript" src="{% static 'js/plugins/iCheck/icheck.js' %}"></script>
     <script>
-        var links = {
-            // urls
-        };
-
         var username = '{{ user.username }}';
     </script>
 {% endblock %}

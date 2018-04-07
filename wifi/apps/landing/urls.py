@@ -5,5 +5,5 @@ from wifi.apps.landing.views import Landing
 app_name = 'landing'
 
 urlpatterns = [
-    url(r'^$', Landing.as_view(), name='landing'),
+    # url(r'^$', Landing.as_view(), name='landing'),
 ]

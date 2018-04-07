@@ -19,6 +19,7 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^', include('wifi.apps.landing.urls', namespace='landing')),
+    url(r'^', include('wifi.apps.accounts.urls', namespace='accounts')),
+    url(r'^', include('wifi.apps.dashboard.urls', namespace='dashboard')),
     url(r'^', include('wifi.apps.wi_fi.urls', namespace='wi_fi')),
 ]
