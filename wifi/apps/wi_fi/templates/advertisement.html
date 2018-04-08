@@ -29,7 +29,7 @@
         <h3 class="cover-heading">Watch picture below to use internet</h3>
         <p class="lead">
             {% csrf_token %}
-            <img class="img-responsive center-block" src="http://friday-ad.s3-website-eu-west-1.amazonaws.com/uploads/image/16765101_16765200/samsung-galaxy-s9-plus-16765123-1_800X600.jpg?4cfdb8674f17094c">
+            <img class="img-responsive center-block" src="{{ ad }}">
             <div class="timer_div">You will redirect in &nbsp;<span style="color: green"><p id="countdown_seconds">10</p></span>&nbsp; seconds
     </main>
 

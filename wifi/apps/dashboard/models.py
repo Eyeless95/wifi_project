@@ -9,15 +9,14 @@ class Advertisement(models.Model):
 
     def create_ad_statistic(self):
         Statistic.objects.create(advertisement_id=self.id)
-        UserSettings.objects.create(user=self.user)
 
 
 class Statistic(models.Model):
-    advertisement = models.ForeignKey(Advertisement, on_delete='CASCADE')
+    advertisement = models.OneToOneField(Advertisement, on_delete='CASCADE', related_name='ad_statisic')
     views = models.IntegerField(default=0)
 
 
 class UserSettings(models.Model):
-    user = models.ForeignKey(User, on_delete='CASCADE')
+    user = models.OneToOneField(User, on_delete='CASCADE', related_name='settings')
     ads_remain = models.IntegerField(default=5)
     views_remain = models.IntegerField(default=1000)

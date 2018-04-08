@@ -8,15 +8,15 @@
 
 {% block content %}
     <section class="content-header">
-    <h1>Dashboard</h1>
-    <ol class="breadcrumb">
-        <li>
-            <a href="#">
-                <i class="fa fa-dashboard"></i>Home
-            </a>
-        </li>
-        <li class="active">Dashboard</li>
-    </ol>
+        <h1>Dashboard</h1>
+        <ol class="breadcrumb">
+            <li>
+                <a href="#">
+                    <i class="fa fa-dashboard"></i>Home
+                </a>
+            </li>
+            <li class="active">Dashboard</li>
+        </ol>
     </section>
     <section class="content">
         <div class="row">
@@ -27,7 +27,7 @@
                     </span>
                     <div class="info-box-content">
                         <span class="info-box-text">Ads number</span>
-                        <span class="info-box-number">2</span>
+                        <span class="info-box-number">{{ ads_count }}</span>
                     </div>
                 </div>
             </div>
@@ -38,7 +38,7 @@
                     </span>
                     <div class="info-box-content">
                         <span class="info-box-text">Ads Views</span>
-                        <span class="info-box-number">27</span>
+                        <span class="info-box-number">{{ ads_views }}</span>
                     </div>
                 </div>
             </div>
@@ -49,7 +49,7 @@
                     </span>
                     <div class="info-box-content">
                         <span class="info-box-text">Views remain</span>
-                        <span class="info-box-number">973</span>
+                        <span class="info-box-number">{{ views_remain }}</span>
                     </div>
                 </div>
             </div>
@@ -60,7 +60,7 @@
                     </span>
                     <div class="info-box-content">
                         <span class="info-box-text">Popularity</span>
-                        <span class="info-box-number">10<small>%</small></span>
+                        <span class="info-box-number">TBA</span>
                     </div>
                 </div>
             </div>
@@ -95,13 +95,44 @@
             </div>
         </div>
     </section>
+
+    <div class="modal fade in" id="add_modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title">Add advertisement</h4>
+                </div>
+                <form id="add_form" method="post" enctype="multipart/form-data" action="{% url 'dashboard:add_advertisement' %}">
+                    <div class="modal-body">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="name_of_ad">Name</label>
+                            <input type="text" class="form-control" id="name_of_ad" name="ad_name" placeholder="Enter name">
+                        </div>
+                        <div class="form-group">
+                            <label for="file_path">Add file</label>
+                            <input type="file" id="file_path" name="file_path">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-success">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 
 {% block javascript %}
     {{ block.super }}
     <script>
         var links = {
-            ajax_dashboard_datatable: '{% url "dashboard:ajax_dashboard_datatable" %}'
+            ajax_dashboard_datatable: '{% url "dashboard:ajax_dashboard_datatable" %}',
+            add_advertisement: '{% url "dashboard:add_advertisement" %}'
         }
     </script>
     <script src="{% static 'datatables.net/js/jquery.dataTables.min.js' %}"></script>

@@ -173,3 +173,4 @@ venv.bak/
 # mypy
 .mypy_cache/
 /wifi/static/bower_components/
+/wifi/media/

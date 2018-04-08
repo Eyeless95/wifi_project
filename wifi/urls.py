@@ -14,12 +14,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.conf.urls import url, include
+from django.conf.urls.static import static
 from django.contrib import admin
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import path
+
+from wifi.settings.common import STATIC_URL, STATIC_ROOT, MEDIA_URL, MEDIA_ROOT
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^', include('wifi.apps.accounts.urls', namespace='accounts')),
     url(r'^', include('wifi.apps.dashboard.urls', namespace='dashboard')),
     url(r'^', include('wifi.apps.wi_fi.urls', namespace='wi_fi')),
-]
+] + static(STATIC_URL, document_root=STATIC_ROOT)\
+  + static(MEDIA_URL, document_root=MEDIA_ROOT)
+urlpatterns += staticfiles_urlpatterns()
