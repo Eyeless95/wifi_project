@@ -10,3 +10,25 @@
 .ad_image {
     width: 100px;
 }
+
+.del_btn, .show_btn, .hide_btn {
+    padding: 5px;
+    border-radius: 4px;
+    color: white;
+}
+
+.del_btn {
+    background-color: red;
+}
+
+.show_btn {
+    background-color: green;
+}
+
+.disabled_row {
+    background-color: #a9a9a97a;
+}
+
+.hide_btn {
+    background-color: orange;
+}

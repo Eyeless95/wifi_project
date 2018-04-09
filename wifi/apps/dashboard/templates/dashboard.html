@@ -19,53 +19,11 @@
         </ol>
     </section>
     <section class="content">
-        <div class="row">
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box">
-                    <span class="info-box-icon bg-green">
-                        <i class="fa fa-buysellads"></i>
-                    </span>
-                    <div class="info-box-content">
-                        <span class="info-box-text">Ads number</span>
-                        <span class="info-box-number">{{ ads_count }}</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box">
-                    <span class="info-box-icon bg-aqua">
-                        <i class="fa fa-eye"></i>
-                    </span>
-                    <div class="info-box-content">
-                        <span class="info-box-text">Ads Views</span>
-                        <span class="info-box-number">{{ ads_views }}</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box">
-                    <span class="info-box-icon bg-red">
-                        <i class="fa fa-eye-slash"></i>
-                    </span>
-                    <div class="info-box-content">
-                        <span class="info-box-text">Views remain</span>
-                        <span class="info-box-number">{{ views_remain }}</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box">
-                    <span class="info-box-icon bg-orange">
-                        <i class="fa fa-industry"></i>
-                    </span>
-                    <div class="info-box-content">
-                        <span class="info-box-text">Popularity</span>
-                        <span class="info-box-number">TBA</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        {% if request.user.is_superuser %}
+        {% include 'admin_tabs.html' %}
+        {% else %}
+        {% include 'user_tabs.html' %}
+        {% endif %}
         <div class="row">
             <div class="col-md-12">
                 <div class="box">
@@ -78,13 +36,14 @@
                                 <div class="datatable_controls">
                                     <button type="button" class="btn btn-block btn-info" id="add_ad">Add advertisement</button>
                                 </div>
-                                <table class="table table-bordered table-hover dataTable" id="ads_datatable" width="100%">
+                                <table class="table table-bordered dataTable" id="ads_datatable" width="100%">
                                     <thead>
                                     <tr>
                                         <th>Name</th>
                                         <th>Image</th>
                                         <th>Views</th>
                                         <th>Popularity</th>
+                                        <th>Controls</th>
                                     </tr>
                                     </thead>
                                 </table>
@@ -132,7 +91,8 @@
     <script>
         var links = {
             ajax_dashboard_datatable: '{% url "dashboard:ajax_dashboard_datatable" %}',
-            add_advertisement: '{% url "dashboard:add_advertisement" %}'
+            add_advertisement: '{% url "dashboard:add_advertisement" %}',
+            change_ad_state: '{% url "dashboard:change_ad_state" %}'
         }
     </script>
     <script src="{% static 'datatables.net/js/jquery.dataTables.min.js' %}"></script>
