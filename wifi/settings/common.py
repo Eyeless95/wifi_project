@@ -4,7 +4,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 DEBUG = True if os.getenv('DEBUG', 'true') == 'true' else False
 
-ALLOWED_HOSTS = ['159.65.83.193', 'free-wifi-project.tk']
+ALLOWED_HOSTS = ['159.65.83.193', 'free-wifi-project.tk', '127.0.0.1']
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -59,6 +59,6 @@ USE_TZ = True
 
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
-STATIC_URL = '/static/'
+STATIC_URL = os.getenv('STATIC_URL', '/static/')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
