@@ -4,7 +4,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 DEBUG = True if os.getenv('DEBUG', 'true') == 'true' else False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['159.65.83.193', 'free-wifi-project.tk']
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
