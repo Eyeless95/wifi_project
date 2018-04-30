@@ -3,7 +3,6 @@
 # Virtualenv
 # http://iamzed.com/2009/05/07/a-primer-on-virtualenv/
 .Python
-[Bb]in
 [Ii]nclude
 [Ll]ib
 [Ll]ib64
@@ -174,3 +173,8 @@ venv.bak/
 .mypy_cache/
 /wifi/static/bower_components/
 /wifi/media/
+!/rootfs/usr/
+!/rootfs/usr/local/
+
+!/rootfs/usr/local/bin/
+!/rootfs/usr/local/bin/wifi.bash
