@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    // var interval = setInterval(update_countdown, 1000);
+    var interval = setInterval(update_countdown, 1000);
 
     function update_countdown() {
         var current = parseInt($('#countdown_seconds').text());
