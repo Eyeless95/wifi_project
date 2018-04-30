@@ -31,7 +31,7 @@ a:hover {
 html,
 body {
   height: 100%;
-  background-color: #333;
+  background-color: #3330;
 }
 
 body {
@@ -132,4 +132,16 @@ body {
 #thank_you_text {
   position: absolute;
   margin-top: 150px;
+}
+
+.center-block {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
 }

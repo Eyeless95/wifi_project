@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    var interval = setInterval(update_countdown, 1000);
+    // var interval = setInterval(update_countdown, 1000);
 
     function update_countdown() {
         var current = parseInt($('#countdown_seconds').text());
@@ -10,7 +10,7 @@ $(document).ready(function () {
         }
         $('#countdown_seconds').text(current - 1);
     }
-    
+
     function redirect_to_thanks_page() {
         var csrfmiddlewaretoken = $('input[name=csrfmiddlewaretoken]').val();
         $.ajax({
