@@ -22,8 +22,7 @@ $(document).ready(function () {
             dataType: 'json',
             success: function (data) {
                 if (data['status']) {
-                    console.log('We are here');
-                    window.location.href = links.thank_you_page
+                    window.location.href = 'http://10.5.50.1/success_login.html'
                 }
             }
         })
